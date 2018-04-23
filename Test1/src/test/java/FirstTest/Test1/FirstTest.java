@@ -2,8 +2,15 @@ package FirstTest.Test1;
 
 import static org.junit.Assert.*;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import javax.xml.xpath.XPath;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,10 +40,18 @@ public class FirstTest {
 	}
 	
 	@Test
-	public void firstTest() throws InterruptedException {
+	public void firstTest() throws InterruptedException, IOException {
 		
-		String username = "user1";
-		String password = "Pass1";
+		FileInputStream file = null;
+		file = new FileInputStream(LoginData);
+		XSSFWorkbook workbook = null;
+		workbook = new XSSFWorkbook(file);
+		XSSFSheet sheet = workbook.getSheetAt(0);
+		Cell username = sheet.getRow(1).getCell(0);
+		Cell password = sheet.getRow(1).getCell(1);
+		
+		String user = username.getStringCellValue();
+		String pass = password.getStringCellValue();
 		
 		driver.get("http://asp.thedemosite.co.uk/");
 		test.log(LogStatus.INFO, "navigate to demosite homepage");
@@ -44,12 +59,12 @@ public class FirstTest {
 		driver.findElement(By.xpath("/html/body/div/center/table/tbody/tr[2]/td/div/center/table/tbody/tr/td[2]/small/strong/a[3]")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("/html/body/form/div/center/table/tbody/tr/td[1]/div/center/table/tbody/tr[1]/td[2]/input")).click();
-		driver.findElement(By.xpath("/html/body/form/div/center/table/tbody/tr/td[1]/div/center/table/tbody/tr[1]/td[2]/input")).sendKeys(username);
+		driver.findElement(By.xpath("/html/body/form/div/center/table/tbody/tr/td[1]/div/center/table/tbody/tr[1]/td[2]/input")).sendKeys(user);
 		
 		test.log(LogStatus.INFO, "inputting new username");
 		
 		driver.findElement(By.xpath("/html/body/form/div/center/table/tbody/tr/td[1]/div/center/table/tbody/tr[2]/td[2]/input")).click();
-		driver.findElement(By.xpath("/html/body/form/div/center/table/tbody/tr/td[1]/div/center/table/tbody/tr[2]/td[2]/input")).sendKeys(password);
+		driver.findElement(By.xpath("/html/body/form/div/center/table/tbody/tr/td[1]/div/center/table/tbody/tr[2]/td[2]/input")).sendKeys(pass);
 		
 		test.log(LogStatus.INFO, "inputting new password");
 		
@@ -63,12 +78,12 @@ public class FirstTest {
 		test.log(LogStatus.INFO, "navigate to login");
 		
 		driver.findElement(By.xpath("/html/body/form/div[1]/center/table/tbody/tr/td/div/center/table/tbody/tr[1]/td[2]/input")).click();
-		driver.findElement(By.xpath("/html/body/form/div[1]/center/table/tbody/tr/td/div/center/table/tbody/tr[1]/td[2]/input")).sendKeys(username);
+		driver.findElement(By.xpath("/html/body/form/div[1]/center/table/tbody/tr/td/div/center/table/tbody/tr[1]/td[2]/input")).sendKeys(user);
 		
 		test.log(LogStatus.INFO, "Entering username on login screen");
 		
 		driver.findElement(By.xpath("/html/body/form/div[1]/center/table/tbody/tr/td/div/center/table/tbody/tr[2]/td[2]/input")).click();
-		driver.findElement(By.xpath("/html/body/form/div[1]/center/table/tbody/tr/td/div/center/table/tbody/tr[2]/td[2]/input")).sendKeys(password);
+		driver.findElement(By.xpath("/html/body/form/div[1]/center/table/tbody/tr/td/div/center/table/tbody/tr[2]/td[2]/input")).sendKeys(pass);
 		
 		test.log(LogStatus.INFO, "Entering password in login screen");
 		

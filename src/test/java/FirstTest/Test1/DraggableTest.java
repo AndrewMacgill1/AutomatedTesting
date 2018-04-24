@@ -1,7 +1,5 @@
 package FirstTest.Test1;
 
-import static org.junit.Assert.*;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -20,7 +18,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 
-public class SecondTest {
+public class DraggableTest {
 	
 	WebDriver driver;
 	

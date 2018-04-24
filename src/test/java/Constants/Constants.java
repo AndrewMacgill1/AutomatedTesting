@@ -8,6 +8,7 @@ public class Constants {
 	public static String Draggable = "draggable/";
 	public static String Droppable = "droppable/";
 	public static String Resizable = "resizable/";
+	public static String Registration = "registration/";
 	
 	
 	public static String Path_TestData = "C:\\Users\\Admin\\AutomatedTesting\\DDT\\"; 

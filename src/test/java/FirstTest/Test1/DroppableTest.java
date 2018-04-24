@@ -25,13 +25,13 @@ public class DroppableTest {
 	}
 	
 	@Test
-	public void secondTest() throws InterruptedException, IOException {
+	public void droppableTest() throws InterruptedException, IOException {
 		driver.get(Constants.DemoQASiteURL + Constants.Droppable);
 		WebElement droppableBox = driver.findElement(By.xpath("//*[@id=\"draggableview\"]"));
 		WebElement droppableTarget = driver.findElement(By.xpath("//*[@id=\"droppableview\"]"));
 		Actions builder = new Actions(driver);
 		
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 				
 		builder.dragAndDrop(droppableBox, droppableTarget).perform();
 		

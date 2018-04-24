@@ -1,17 +1,13 @@
 package FirstTest.Test1;
 
-import java.io.File;
 import java.io.IOException;
 
 import Constants.Constants;
 
-import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -29,25 +25,23 @@ public class DraggableTest {
 	}
 	
 	@Test
-	public void secondTest() throws InterruptedException, IOException {
+	public void draggableTest() throws InterruptedException, IOException {
 		driver.get(Constants.DemoQASiteURL + Constants.Draggable);
 		WebElement box = driver.findElement(By.xpath("//*[@id=\"draggable\"]"));
 		Actions builder = new Actions(driver);
 		
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		
-		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+/*		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		
 		String dest = "C:\\Users\\Admin\\AutomatedTesting\\name.png";
 
 		File finaldest = new File(dest);
 		
-		FileUtils.copyFile(scrFile,finaldest);
+		FileUtils.copyFile(scrFile,finaldest);*/
 		
 		builder.dragAndDropBy(box, 100, 50).perform();
-		
-		
-		
+				
 		Thread.sleep(3000);
 		
 	}

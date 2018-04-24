@@ -25,7 +25,7 @@ public class ResizableTest {
 	}
 	
 	@Test
-	public void secondTest() throws InterruptedException, IOException {
+	public void resizableTest() throws InterruptedException, IOException {
 		driver.get(Constants.DemoQASiteURL + Constants.Resizable);
 		WebElement boxResizer = driver.findElement(By.xpath("//*[@id=\"resizable\"]/div[3]"));
 		Actions builder = new Actions(driver);

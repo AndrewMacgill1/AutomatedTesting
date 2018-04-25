@@ -1,5 +1,7 @@
 package tests;
 
+import static org.junit.Assert.*;
+
 import java.io.IOException;
 
 import Constants.Constants;
@@ -22,9 +24,9 @@ public class RegistrationTest {
 	Select monthdropdown;
 	Select daydropdown;
 	Select yeardropdown;
-	String username = "AndrewMacgill";
+	String username = "AndrewMacgill002";
 	String password = "AmAcG1||'s Pa$$w0Rd";
-	String email = "andrew.macgill@qa.com";
+	String email = "andrew.macgill002@qa.com";
 	String description = "Absolute pure G";
 	
 	@Before
@@ -113,6 +115,15 @@ public class RegistrationTest {
 		reenterpasswordTextBox.sendKeys(password);
 		
 		Thread.sleep(500);
+		
+		WebElement submitButton = driver.findElement(By.xpath("//*[@id=\"pie_register\"]/li[14]/div/input"));
+		submitButton.click();
+		
+		Thread.sleep(5000);
+		
+		String dispMessage = driver.findElement(By.xpath("//*[@id=\"post-49\"]/div/p")).getText();
+		
+		assertEquals("Thank you for your registration",dispMessage);
 	}
 	
 	

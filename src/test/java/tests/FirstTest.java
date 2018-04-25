@@ -1,4 +1,4 @@
-package FirstTest.Test1;
+package tests;
 
 import static org.junit.Assert.*;
 import Constants.Constants;

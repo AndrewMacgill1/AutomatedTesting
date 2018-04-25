@@ -10,6 +10,10 @@ public class Constants {
 	public static String Resizable = "resizable/";
 	public static String Registration = "registration/";
 	
+	public static String BBCSiteURL = "https://www.bbc.co.uk/";
+	
+	public static String GoogleURL = "https://www.google.co.uk/";
+	
 	
 	public static String Path_TestData = "C:\\Users\\Admin\\AutomatedTesting\\DDT\\"; 
 	public static String File_TestData = "LoginData.xlsx";

@@ -31,4 +31,5 @@ public class Constants {
 	public static String PHPHotelsURL = "https://www.phptravels.net/";
 	public static String HotelListURL = "https://www.phptravels.net/hotels/search/united-kingdom/london/9?txtSearch=London%2C+United+Kingdom&checkin=24%2F04%2F2018&checkout=27%2F04%2F2018&adults=3&child=0&searching=9&modType=location";
 	public static String HotelChoiceURL = "https://www.phptravels.net/hotels/united-kingdom/london/Grand-Plaza-Apartments";
+	public static String LatestHotelURL = "https://www.phptravels.net/hotels/book/Grand-Plaza-Apartments?adults=3&child=0&checkin=27%2F04%2F2018&checkout=29%2F04%2F2018&roomid=17&roomscount=1";
 }

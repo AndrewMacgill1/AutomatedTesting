@@ -38,32 +38,16 @@ public class HotelTesting {
 		homepage.chooseHotel();
 		homepage.refineStartDate(driver);
 		homepage.refineEndDate();
-		homepage.chooseRoom();
+		homepage.refineAdults(driver);
+		homepage.modifyChange();
+		homepage.chooseRoom(driver);
 	}
 	
 	@Then("^I am directed to my hotel choice$")
 	public void I_am_directed_to_my_hotel_choice() {
 		String currentURL = driver.getCurrentUrl();
-		String expectedURL = Constants.HotelChoiceURL;
+		String expectedURL = Constants.LatestHotelURL;
 		assertEquals(expectedURL,currentURL);
 	}
-	
-/*	@Given("^a hotel choice$")
-	public void a_hotel_choice() {
-		System.out.println(driver.getCurrentUrl());
-	}
-	
-	@When("^i choose a suitable hotel$")
-	public void i_choose_a_suitable_hotel() throws InterruptedException {
-		hotelsPage = PageFactory.initElements(driver, HotelListPage.class);
-		hotelsPage.chooseHotel();
-	}
-	
-	@Then("^i am directed to that hotel booking$")
-	public void i_am_directed_to_that_booking() {
-		String currentURL = driver.getCurrentUrl();
-		String expectedURL = Constants.HotelChoiceURL;
-		assertEquals(expectedURL,currentURL);
-	}*/
-	
+		
 }

@@ -49,6 +49,12 @@ public class PHPHomepage {
 	@FindBy(how = How.XPATH, using = "/html/body/div[19]/div[1]/table/tbody/tr[6]/td[1]")
 	private WebElement endDayNumber;
 	
+	@FindBy(how = How.XPATH, using = "/html/body/div[9]/div[4]/div/div[2]/form/div[5]/button")
+	private WebElement modifyButton;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id=\"adults\"]")
+	private WebElement adultDropdown2;
+	
 	public void enterLocation(WebDriver driver, String location) throws InterruptedException {
 				
 		Actions builder = new Actions(driver);
@@ -134,7 +140,28 @@ public void enterArrivalDate() throws InterruptedException {
 		Thread.sleep(500);
 	}
 	
-	public void chooseRoom() throws InterruptedException {
+	public void refineAdults(WebDriver driver) throws InterruptedException {
+		Actions builder = new Actions(driver);
+		adultDropdown2.click();
+		Thread.sleep(500);
+		builder.sendKeys(Keys.ARROW_DOWN);
+		Thread.sleep(200);
+		builder.sendKeys(Keys.ENTER);
+		Thread.sleep(200);
+	}
+	
+	public void modifyChange() {
+		modifyButton.click();
+	}
+	
+	public void chooseRoom(WebDriver driver) throws InterruptedException {
+		
+		Actions builder = new Actions(driver);
+		
+		for (int i = 0; i < 20 ; i++) {
+			builder.sendKeys(Keys.ARROW_DOWN).perform();
+			Thread.sleep(50);
+		}
 				
 		bookNow.click();
 		
